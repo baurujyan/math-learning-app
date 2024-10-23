@@ -1,0 +1,206 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff;
+    background-image: linear-gradient(to bottom right, #f0f8ff, #e6f3ff);
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-board {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#problem {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number, .operator {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.number {
+    background-color: #ffd700;
+    color: #4a4a4a;
+}
+
+.operator {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.equals {
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+#answer {
+    font-size: 1.5rem;
+    width: 100px;
+    text-align: center;
+    border: 2px solid #4a4a4a;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#result {
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+}
+
+.stats p {
+    margin: 0;
+}
+
+.stats span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.pop {
+    animation: pop 0.3s ease;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a4a4a;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: #ffd700;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #2c3e50;
+    background-image: linear-gradient(to bottom right, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+body.dark-mode .container {
+    background-color: #34495e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode h1 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .game-board {
+    background-color: #2c3e50;
+}
+
+body.dark-mode .number {
+    background-color: #f39c12;
+    color: #2c3e50;
+}
+
+body.dark-mode .operator {
+    background-color: #e74c3c;
+}
+
+body.dark-mode #answer {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-color: #ecf0f1;
+}
+
+body.dark-mode button {
+    background-color: #27ae60;
+}
+
+body.dark-mode button:hover {
+    background-color: #2ecc71;
+}
+
+body.dark-mode .stats {
+    color: #ecf0f1;
+}
+
+body.dark-mode .stats span {
+    color: #2ecc71;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ecf0f1;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    color: #f39c12;
+}

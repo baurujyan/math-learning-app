@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Adventure for Kids</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <button id="darkModeToggle" class="dark-mode-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <h1>Math Adventure</h1>
+        <div class="game-board">
+            <div id="problem">
+                <span id="num1" class="number"></span>
+                <span id="operator" class="operator"></span>
+                <span id="num2" class="number"></span>
+                <span class="equals">=</span>
+                <input type="number" id="answer" autocomplete="off">
+            </div>
+            <button id="submit">Check Answer</button>
+            <p id="result"></p>
+        </div>
+        <div class="stats">
+            <p id="streak">Streak: <span>0</span></p>
+            <p id="level">Level: <span>1</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
