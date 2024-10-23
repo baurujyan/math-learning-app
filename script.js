@@ -3,6 +3,7 @@ let currentOperator;
 let num1, num2;
 let difficulty = 1;
 let streak = 0;
+let isWaitingForNextProblem = false;
 
 const num1Element = document.getElementById('num1');
 const operatorElement = document.getElementById('operator');
@@ -68,6 +69,8 @@ function animateElement(element) {
 }
 
 function checkAnswer() {
+    if (isWaitingForNextProblem) return;
+
     const userAnswer = parseFloat(answerInput.value);
     let correctAnswer;
 
@@ -106,12 +109,22 @@ function checkAnswer() {
     }
 
     animateElement(resultElement);
-    setTimeout(generateProblem, 1500);
+    isWaitingForNextProblem = true;
+    submitButton.disabled = true;
+    answerInput.disabled = true;
+
+    setTimeout(() => {
+        generateProblem();
+        isWaitingForNextProblem = false;
+        submitButton.disabled = false;
+        answerInput.disabled = false;
+        answerInput.focus();
+    }, 1500);
 }
 
 submitButton.addEventListener('click', checkAnswer);
 answerInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && !isWaitingForNextProblem) {
         checkAnswer();
     }
 });
