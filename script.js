@@ -4,6 +4,14 @@ let num1, num2;
 let difficulty = 1;
 let streak = 0;
 let isWaitingForNextProblem = false;
+let topLevel = 1;
+
+// Load top level from localStorage
+const savedTopLevel = localStorage.getItem('topLevel');
+if (savedTopLevel) {
+    topLevel = parseInt(savedTopLevel, 10);
+    document.querySelector('#topLevel span').textContent = topLevel;
+}
 
 const num1Element = document.getElementById('num1');
 const operatorElement = document.getElementById('operator');
@@ -99,6 +107,12 @@ function checkAnswer() {
             levelElement.textContent = difficulty;
             resultElement.textContent += ' Level up!';
         }
+        
+        if (difficulty > topLevel) {
+            topLevel = difficulty;
+            localStorage.setItem('topLevel', topLevel);
+            document.querySelector('#topLevel span').textContent = topLevel;
+        }
     } else {
         resultElement.textContent = 'Incorrect. Try again!';
         resultElement.style.color = '#ff6b6b';
@@ -157,3 +171,26 @@ if (savedDarkMode === 'true') {
 darkModeToggle.addEventListener('click', toggleDarkMode);
 
 generateProblem();
+
+// Cookie consent
+const cookieConsent = document.getElementById('cookieConsent');
+const acceptCookies = document.getElementById('acceptCookies');
+const declineCookies = document.getElementById('declineCookies');
+
+function showCookieConsent() {
+    if (!getCookie('cookieConsent')) {
+        cookieConsent.style.display = 'block';
+    }
+}
+
+acceptCookies.addEventListener('click', () => {
+    setCookie('cookieConsent', 'accepted', 365);
+    cookieConsent.style.display = 'none';
+});
+
+declineCookies.addEventListener('click', () => {
+    localStorage.clear();
+    cookieConsent.style.display = 'none';
+});
+
+showCookieConsent();

@@ -8,6 +8,7 @@ Math Adventure is an interactive web application designed to help kids practice 
 - **Adaptive Difficulty**: The difficulty increases as the user solves more problems correctly.
 - **Streak Counter**: Keeps track of consecutive correct answers to motivate users.
 - **Level System**: Difficulty levels increase as users maintain their streak.
+- **Top Level Tracking**: Remembers and displays the user's highest achieved level across sessions.
 - **Instant Feedback**: Provides immediate feedback on whether the answer is correct or incorrect.
 - **Dark Mode**: A toggle for dark mode to reduce eye strain and provide a different visual experience.
 - **Responsive Design**: Works well on both desktop and mobile devices.
@@ -20,13 +21,14 @@ Math Adventure is an interactive web application designed to help kids practice 
 4. If the answer is correct, the streak increases. If not, the streak resets to zero.
 5. Every three correct answers in a row, the difficulty level increases.
 6. The problems are generated to ensure that numbers and results never exceed 99, keeping the difficulty manageable for kids.
+7. The app remembers the user's top level across sessions using local storage.
 
 ## Technical Details
 
 - **HTML5**: Structures the content of the web application.
 - **CSS3**: Styles the application, including animations and dark mode.
-- **JavaScript**: Handles the game logic, problem generation, and user interactions.
-- **Local Storage**: Remembers the user's dark mode preference.
+- **JavaScript**: Handles the game logic, problem generation, user interactions, and local storage.
+- **Local Storage**: Remembers the user's dark mode preference and top level.
 
 ## Setup and Deployment
 
